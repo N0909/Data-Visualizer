@@ -6,7 +6,7 @@ data = dh.datahandler()
 
 st.title("Data Visualizer")
 
-file = st.file_uploader("Upload CSV",type=["csv"])
+file = st.file_uploader("Upload csv/xlsx",type=["csv","xlsx"])
 if data.load_dataset(file):
     st.write(data.get_preview())
     columns = data.get_columns()
