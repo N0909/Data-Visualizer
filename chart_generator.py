@@ -11,11 +11,11 @@ class gen_chart():
             self.df = outer_instance.df
 
         def column(self,x_axis):
-            fig = px.bar(x=self.df[x_axis].unique(),y=self.df[x_axis].value_counts(),labels=self.df[x_axis].unique())
+            fig = px.bar(x=self.df[x_axis].value_counts().index,y=self.df[x_axis].value_counts(),labels=self.df[x_axis].value_counts().index)
             return fig
         
         def pie(self,name):
-            fig = px.pie(names=self.df[name].unique(),values=self.df[name].value_counts())
+            fig = px.pie(names=self.df[name].value_counts().index,values=self.df[name].value_counts())
             return fig
         
         def histplot(self,name):
@@ -36,6 +36,4 @@ class gen_chart():
         def scatter(self,x_axis,y_axis):
             fig = px.scatter(self.df,x=x_axis,y=y_axis)
             return fig
-
-
 
