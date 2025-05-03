@@ -7,7 +7,10 @@ class datahandler:
     
     def load_dataset(self,path):
         try:
-            self.df = pd.read_csv(path)
+            if path.name[path.name.find("."):] == ".csv":
+                self.df = pd.read_csv(path)
+            elif path.name[path.name.find("."):]  == ".xlsx":
+                self.df = pd.read_excel(path)
             return True
         except Exception as e:
             print("Error Occured Cant Load Dataset")
